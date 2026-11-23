@@ -20,6 +20,7 @@ export type RoutePageKey =
 	| 'cedsOverview'
 	| 'educoreOverview'
 	| 'educoreMilestones'
+	| 'educoreWhoWeAre'
 	| 'resourcesHub'
 	| 'resourcesLibrary'
 	| 'resourcesNewsletter'
@@ -69,6 +70,7 @@ export const routePageKeys = [
 	'cedsOverview',
 	'educoreOverview',
 	'educoreMilestones',
+	'educoreWhoWeAre',
 	'resourcesHub',
 	'resourcesLibrary',
 	'resourcesNewsletter',
@@ -177,6 +179,13 @@ export const routePages: Record<RoutePageKey, RoutePageMeta> = {
 		sectionKey: 'educore',
 		label: 'Milestones',
 		path: '/educore/milestones',
+		parentPath: '/educore'
+	},
+	educoreWhoWeAre: {
+		key: 'educoreWhoWeAre',
+		sectionKey: 'educore',
+		label: 'Who We Are',
+		path: '/educore/who-we-are',
 		parentPath: '/educore'
 	},
 	resourcesHub: {

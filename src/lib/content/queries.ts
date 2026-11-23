@@ -483,6 +483,35 @@ export const timelineQuery = `*[_id == "timeline"][0]{
 	}, [])
 }`;
 
+export const whoWeAreQuery = `*[_id == "whoWeAre"][0]{
+	hero${heroProjection},
+	${headerLogoProjection},
+	"members": coalesce(members[]{
+		_key,
+		name,
+		role,
+		affiliation,
+		"photo": select(
+			defined(photo.asset) => {
+				"url": photo.asset->url,
+				"alt": photo.alt
+			},
+			null
+		),
+		"bio": coalesce(bio[]{
+			_type,
+			style,
+			listItem,
+			level,
+			children[]{
+				_type,
+				text,
+				marks
+			}
+		}, [])
+	}, [])
+}`;
+
 export const contactPageQuery = `*[_id == "eduContact"][0]{
 	hero${heroProjection},
 	${headerLogoProjection},

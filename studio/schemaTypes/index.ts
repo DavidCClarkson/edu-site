@@ -53,6 +53,7 @@ import {resourcesLibrary} from './resourcesLibrary'
 import {resourcesNewsletter} from './resourcesNewsletter'
 import {resourcesPress} from './resourcesPress'
 import {timeline} from './timeline'
+import {whoWeAre} from './whoWeAre'
 import {siteChrome} from './siteChrome'
 import {linkDestination, navItem, sitePage} from './siteNavigation'
 
@@ -113,5 +114,6 @@ export const schemaTypes = [
 	eduHistory,
 	eduContact,
 	educoreOverview,
-	timeline
+	timeline,
+	whoWeAre
 ]
