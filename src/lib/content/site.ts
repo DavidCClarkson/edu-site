@@ -22,7 +22,8 @@ import {
 	resourcesLibraryQuery,
 	resourcesNewsletterQuery,
 	resourcesPressQuery,
-	timelineQuery
+	timelineQuery,
+	whoWeAreQuery
 } from './queries';
 import { resolveDestination } from './destinations';
 import { getRoutePage, getSiteSection } from './route-metadata';
@@ -58,6 +59,7 @@ import type {
 	SiteChrome,
 	SiteNavSection,
 	TimelinePage,
+	WhoWeArePage,
 	LinkDestination,
 	LinkItem
 } from './types';
@@ -557,6 +559,18 @@ export async function getTimelinePage(): Promise<TimelinePage> {
 	const page = await fetchFromSanity<Omit<TimelinePage, 'hero'> & { hero: RawHeroContent }>(
 		timelineQuery,
 		'milestones page'
+	);
+
+	return {
+		...page,
+		hero: resolveHero(page.hero)
+	};
+}
+
+export async function getWhoWeArePage(): Promise<WhoWeArePage> {
+	const page = await fetchFromSanity<Omit<WhoWeArePage, 'hero'> & { hero: RawHeroContent }>(
+		whoWeAreQuery,
+		'Who We Are page'
 	);
 
 	return {

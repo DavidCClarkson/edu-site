@@ -513,6 +513,21 @@ export type TimelinePage = {
 	milestones: Milestone[];
 };
 
+export type TeamMember = {
+	_key: string;
+	name: string;
+	role?: string;
+	affiliation?: string;
+	photo?: ImageAsset;
+	bio: RichTextBlock[];
+};
+
+export type WhoWeArePage = {
+	headerLogo?: ImageAsset;
+	hero: HeroContent;
+	members: TeamMember[];
+};
+
 export type ContactPage = {
 	headerLogo?: ImageAsset;
 	hero: HeroContent;
